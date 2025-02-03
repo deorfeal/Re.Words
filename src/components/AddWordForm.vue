@@ -1,0 +1,64 @@
+<script setup lang="ts">
+import { useAddWord } from '../composables/useAddWord';
+import CustomSelect from './CustomSelect.vue';
+
+const { form, formErrors, submitForm, replaceLang } = useAddWord();
+
+const emit = defineEmits<{
+    (e: 'updatePopupVisibility'): void 
+}>()
+</script>
+
+<template>
+    <div class="adder">
+        <form class="adder__form form">
+            <div class="form__wrapper">
+                <CustomSelect :options="form.languagesState.from.langs"
+                    v-model="form.languagesState.from.chosenValue.longString"
+                    :placeholder="form.languagesState.from.placeholder" :error="formErrors.languagesStateFromError"
+                    :selectedOptionWithPlaceholder="false" :withSearch="true" />
+                <div class="form__replace filling filling--round" @click="replaceLang">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M4.42684 4.8332H12.4215L11.3328 5.85379C11.1343 6.03876 11.0174 6.295 11.0079 6.56614C10.9983 6.83729 11.0968 7.10113 11.2818 7.29963C11.4668 7.49813 11.723 7.61502 11.9942 7.62459C12.2653 7.63416 12.5291 7.53562 12.7276 7.35066L15.6874 4.56105C15.7861 4.46302 15.8645 4.34642 15.918 4.21797C15.9714 4.08952 15.999 3.95175 15.999 3.81261C15.999 3.67347 15.9714 3.53571 15.918 3.40726C15.8645 3.27881 15.7861 3.16221 15.6874 3.06418L12.7276 0.274565C12.5291 0.0896024 12.2653 -0.00893263 11.9942 0.000637268C11.723 0.0102072 11.4668 0.127098 11.2818 0.325595C11.0968 0.524091 10.9983 0.787935 11.0079 1.05908C11.0174 1.33023 11.1343 1.58647 11.3328 1.77143L12.4215 2.79202H4.42684C4.15616 2.79202 3.89657 2.89955 3.70517 3.09095C3.51378 3.28234 3.40625 3.54193 3.40625 3.81261C3.40625 4.08329 3.51378 4.34288 3.70517 4.53428C3.89657 4.72568 4.15616 4.8332 4.42684 4.8332Z"
+                            fill="white" />
+                        <path
+                            d="M3.27132 14.835C3.36961 14.9266 3.48497 14.9979 3.61082 15.0449C3.73667 15.0919 3.87055 15.1137 4.00481 15.109C4.13907 15.1042 4.27108 15.0731 4.3933 15.0173C4.51553 14.9616 4.62557 14.8823 4.71716 14.784C4.80874 14.6857 4.88007 14.5704 4.92707 14.4445C4.97407 14.3187 4.99582 14.1848 4.99109 14.0505C4.98635 13.9163 4.95521 13.7842 4.89945 13.662C4.8437 13.5398 4.76441 13.4298 4.66613 13.3382L3.5775 12.3176H11.5721C11.8428 12.3176 12.1024 12.2101 12.2938 12.0187C12.4852 11.8273 12.5927 11.5677 12.5927 11.297C12.5927 11.0263 12.4852 10.7667 12.2938 10.5753C12.1024 10.3839 11.8428 10.2764 11.5721 10.2764H3.5775L4.66613 9.25581C4.86463 9.07084 4.98152 8.8146 4.99109 8.54346C5.00066 8.27231 4.90212 8.00847 4.71716 7.80997C4.53219 7.61147 4.27596 7.49458 4.00481 7.48501C3.73366 7.47544 3.46982 7.57398 3.27132 7.75894L0.311609 10.5486C0.212864 10.6466 0.134494 10.7632 0.0810139 10.8916C0.0275334 11.0201 0 11.1578 0 11.297C0 11.4361 0.0275334 11.5739 0.0810139 11.7023C0.134494 11.8308 0.212864 11.9474 0.311609 12.0454L3.27132 14.835Z"
+                            fill="white" />
+                    </svg>
+                </div>
+                <CustomSelect :options="form.languagesState.to.langs"
+                    v-model="form.languagesState.to.chosenValue.longString"
+                    :placeholder="form.languagesState.to.placeholder" :error="formErrors.languagesStateToError"
+                    :selectedOptionWithPlaceholder="false" :withSearch="true" />
+            </div>
+            <div class="form__box form-box">
+                <input class="form-box__input filling filling--input filling--notblured"
+                    :class="{ 'filling--error': formErrors.wordError }" type="text" :placeholder="form.word.placeholder"
+                    v-model="form.word.value">
+            </div>
+            <div class="form__box form-box">
+                <input class="form-box__input filling filling--input filling--notblured"
+                    :class="{ 'filling--error': formErrors.translateError }" type="text"
+                    :placeholder="form.translate.placeholder" v-model="form.translate.value">
+            </div>
+            <div class="form__box form-box">
+                <input class="form-box__input filling filling--input filling--notblured" type="text"
+                    :placeholder="form.category.placeholder" v-model="form.category.value">
+            </div>
+            <CustomSelect :options="form.addTo.directions" v-model="form.addTo.chosenValue"
+                :placeholder="form.addTo.placeholder" :error="formErrors.addToError" :withSearch="false" />
+            <div class="form__buttons buttons">
+                <div class="buttons__btn btn btn--transparent filling--notblured"
+                    @click="emit('updatePopupVisibility')">
+                    Cancel
+                </div>
+                <button class="buttons__btn btn btn--white" type="button" @click.prevent="submitForm">
+                    Add
+                </button>
+            </div>
+        </form>
+    </div>
+</template>
+
+<style lang="scss"></style>

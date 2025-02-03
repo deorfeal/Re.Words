@@ -1,0 +1,213 @@
+html,
+body {
+    height: 100%;
+    background: linear-gradient(-168.857deg, #2A2A2E 11%, #2B125A 47%, #000000 100%);
+    font-family: "Nunito", sans-serif;
+    color: #fff;
+    font-size: 16px;
+    line-height: 16px;
+}
+
+.container {
+    padding: 0 15px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1240px;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 16px;
+}
+
+.btn--white {
+    color: #0A0416;
+    background: #fff;
+    border: 1px solid #fff;
+}
+
+.btn--transparent {
+    color: #fff;
+    background: rgba(255, 255, 255, 2.5%);
+    border: 1px solid rgba(255, 255, 255, 2.5%);
+    backdrop-filter: blur(5px);
+    transition: background 0.3s, border 0.3s;
+}
+
+.btn--transparent:active {
+    background: rgba(255, 255, 255, 15%);
+    border: 1px solid rgba(255, 255, 255, 15%);
+}
+
+.page {
+    padding: 30px 0;
+}
+
+.filling {
+    background: rgba(255, 255, 255, 2.5%);
+    border: 1px solid rgba(255, 255, 255, 2.5%);
+    backdrop-filter: blur(5px);
+    padding: 12px;
+    width: 100%;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 16px;
+    line-height: 16px;
+    transition: background 0.3s, border 0.3s, color 0.3s, transform 0.3s ease;
+}
+
+.filling::placeholder {
+    font-size: 16px;
+    line-height: 16px;
+}
+
+.filling--notblured {
+    backdrop-filter: unset;
+}
+
+.filling--round {
+    border-radius: 100%;
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: unset;
+}
+
+.filling--round img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.filling--round svg {
+    width: 16px;
+    height: 16px;
+}
+
+.filling--input {
+    font-size: 16px;
+    line-height: 16px;
+    max-height: 42px;
+}
+
+.filling--input::placeholder {
+    color: rgb(255, 255, 255, 75%);
+    font-size: 16px;
+    line-height: 16px;
+}
+
+.filling--input:focus {
+    background: rgba(255, 255, 255, 15%);
+    border: 1px solid rgba(255, 255, 255, 15%);
+}
+
+.filling:active {
+    background: rgba(255, 255, 255, 15%);
+    border: 1px solid rgba(255, 255, 255, 15%);
+    color: #fff;
+}
+
+.filling--without-focus:active {
+    background: rgba(255, 255, 255, 2.5%);
+    border: 1px solid rgba(255, 255, 255, 2.5%);
+}
+
+.filling--without-focus:focus {
+    background: rgba(255, 255, 255, 2.5%);
+    border: 1px solid rgba(255, 255, 255, 2.5%);
+}
+
+.filling--active {
+    background: rgba(255, 255, 255, 15%);
+    border: 1px solid rgba(255, 255, 255, 15%);
+}
+
+.filling--error {
+    border: 1px solid #B51F5E;
+    background: rgba(181, 31, 94, 2.5%);
+}
+
+.filling--input.filling--error:focus {
+    border: 1px solid #B51F5E;
+}
+
+.opacity-enter-active,
+.opacity-leave-active {
+    transition: opacity 0.3s;
+}
+
+.opacity-enter-from,
+.opacity-leave-to {
+    opacity: 0;
+}
+
+.cover {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 50%);
+    backdrop-filter: blur(25px);
+    z-index: 1;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.form-box {
+    width: 100%;
+    position: relative;
+}
+
+.form-box__show {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10px;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.form__wrapper {
+    display: grid;
+    grid-template-columns: 1fr 42px 1fr;
+    gap: 10px;
+}
+
+.form__replace svg {
+    width: 16px;
+    height: 16px;
+}
+
+.form-box__show svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    transition: opacity 0.3s ease-in-out;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
