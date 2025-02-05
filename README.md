@@ -94,7 +94,7 @@ Automatic logout after inactivity ⏳
 
 ---
 
-## 📸 **Скриншоты и демонстрация**
+## 📸 **Screenshots & Demo**
 
 Live demo: https://deorfeal.github.io/Re.Words
 
