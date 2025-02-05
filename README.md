@@ -43,6 +43,7 @@ Three-level organization:
 - Thematic subcategories (e.g., "Transport," "Food")
 
 Supports an unlimited number of languages and translations
+
 Quick translation direction switch (A → B / B → A)
 
 ### 🔧 **Filters & Sorting**
@@ -68,14 +69,19 @@ Mass actions for selected words:
 ### 🔍 **Universal Search**
 
 Instant search across all words from anywhere in the app
+
 Highlighted matches in results
+
 Direct access to word cards
 
 ### 🔐 **Account System**
 
 Full-fledged registration/authentication via Firebase
+
 Personal data encryption 🔒
+
 Cross-device synchronization 🔄
+
 Automatic logout after inactivity ⏳
 
 ---
@@ -109,11 +115,17 @@ This project is distributed under the MIT License.
 ---
 
 Re.Words showcases expertise in:
+
 ✅ Vue 3 Composition API
+
 ✅ TypeScript & strict typing
+
 ✅ Firebase (Auth/Firestore/Storage)
+
 ✅ Complex state management
+
 ✅ Responsive UI
+
 ✅ Optimized network requests
 
 Make language learning effective and engaging! 🚀
