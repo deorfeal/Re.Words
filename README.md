@@ -1,4 +1,6 @@
-# Re.Words
+---
+
+### Re.Words
 
 This template should help get you started developing with Vue 3 in Vite.
 
@@ -32,7 +34,7 @@ npm run dev
 npm run build
 ```
 
-## 📚 **Functionality**
+### 📚 **Functionality**
 
 ### 📦 **Word Management**
 
@@ -86,7 +88,7 @@ Automatic logout after inactivity ⏳
 
 ---
 
-## 📊 **Logic & Workflow**
+### 📊 **Logic & Workflow**
 
 - Dynamic updates: All changes sync instantly with Firebase
 - Data validation: Ensures correctness before saving to the database
@@ -94,13 +96,13 @@ Automatic logout after inactivity ⏳
 
 ---
 
-## 📸 **Screenshots & Demo**
+### 📸 **Screenshots & Demo**
 
 Live demo: https://deorfeal.github.io/Re.Words
 
 ---
 
-## 📧 **Contacts**
+### 📧 **Contacts**
 
 - **Name:** Mykhailo Hakman
 - **Email:** deorfeal.it@gmail.com
@@ -108,7 +110,7 @@ Live demo: https://deorfeal.github.io/Re.Words
 
 ---
 
-## 📜 **License**
+### 📜 **License**
 
 This project is distributed under the MIT License.
 
@@ -129,3 +131,5 @@ Re.Words showcases expertise in:
 ✅ Optimized network requests
 
 Make language learning effective and engaging! 🚀
+
+---
