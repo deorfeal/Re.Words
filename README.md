@@ -34,6 +34,8 @@ npm run dev
 npm run build
 ```
 
+---
+
 ### 📚 **Functionality**
 
 ### 📦 **Word Management**
