@@ -50,7 +50,7 @@ const icons = <Record<string, string>>{
     font-weight: 700;
     font-size: 12px;
     line-height: 14px;
-    padding: 10px;
+    padding: 12px;
     border-radius: 8px;
     min-width: max-content;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);

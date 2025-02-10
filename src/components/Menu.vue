@@ -15,7 +15,7 @@ const { coutsData, getCounts } = useMenuManager()
 
 const menuItems = ref<MenuItem[]>([
     {
-        icon: `${import.meta.env.BASE_URL}/images/all-icon.svg`, 
+        icon: `${import.meta.env.BASE_URL}/images/all-icon.svg`,
         count: computed(() => coutsData.value.all),
         title: 'All',
         router: '/words/all'
@@ -83,7 +83,7 @@ watch(
 .menu-list {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 15px;
+    gap: 10px;
 
     &__item {
         &:nth-child(3) {
@@ -97,6 +97,20 @@ watch(
     flex-direction: column;
     gap: 10px;
 
+    &:hover {
+        .card-head__icon {
+            background: rgba(255, 255, 255, 15%);
+            border: 1px solid rgba(255, 255, 255, 15%);
+        }
+    }
+
+    &:active {
+        .card-head__icon {
+            background: rgba(255, 255, 255, 15%);
+            border: 1px solid rgba(255, 255, 255, 15%);
+        }
+    }
+
     &__title {}
 }
 
@@ -105,7 +119,20 @@ watch(
     align-items: center;
     justify-content: space-between;
 
-    &__icon {}
+    &__icon {
+        // background: unset;
+        backdrop-filter: unset;
+
+        &:hover {
+            background: unset;
+            border: 1px solid rgba(255, 255, 255, 2.5%);
+        }
+
+        &:active {
+            background: unset;
+            border: 1px solid rgba(255, 255, 255, 2.5%);
+        }
+    }
 
     &__icon-img {}
 }
@@ -114,13 +141,15 @@ watch(
     display: flex;
     align-items: center;
     gap: 3.5px;
+
     svg {
         width: 8px;
         height: 12px;
     }
+
     &__digit {
         font-size: 14px;
-        line-height: 15px;
+        line-height: 14px;
     }
 }
 </style>

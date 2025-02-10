@@ -83,6 +83,7 @@ watch(selectedValue, (newVal) => {
 .select {
     width: 100%;
     cursor: pointer;
+    position: relative;
 
     &--search {
         &::before {
@@ -91,21 +92,19 @@ watch(selectedValue, (newVal) => {
             width: 1px;
             height: calc(100% - 8px);
             background: rgba(255, 255, 255, 2.5%);
-            right: 35px;
+            right: 40px;
             top: 50%;
             transform: translateY(-50%);
             z-index: 1;
         }
 
         .select-selected {
-            padding-right: 45px;
+            padding-right: 35px
         }
     }
 }
 
 .custom-select {
-    position: relative;
-
     &::after {
         content: '';
         width: 16px;
@@ -113,7 +112,7 @@ watch(selectedValue, (newVal) => {
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-        right: 10px;
+        right: 12px;
         background-image: url(/images/drop-down.svg);
         background-repeat: no-repeat;
         background-size: contain;
@@ -140,7 +139,7 @@ watch(selectedValue, (newVal) => {
 .select-selected {
     max-height: 42px;
     width: 100%;
-    transition: border-radius 0.3s, border 0.3s;
+    transition: border-radius 0.3s, border 0.3s, background 0.3s, color 0.3s;
     padding: 12px 35px 12px 12px;
     white-space: nowrap;
 
@@ -187,11 +186,13 @@ watch(selectedValue, (newVal) => {
     padding: 12px;
     border-bottom: 1px solid rgba(255, 255, 255, 2.5%);
     white-space: nowrap;
-
-    padding: 12px;
     transition: background 0.3s, color 0.3s;
 
     &:active {
+        background: rgba(255, 255, 255, 15%);
+    }
+
+    &:hover {
         background: rgba(255, 255, 255, 15%);
     }
 

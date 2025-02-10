@@ -12,7 +12,7 @@ const props = defineProps<{
     <div class="head">
         <div class="head__inner">
             <router-link class="head__link" to="/menu">
-                <h1 class="head__title" >
+                <h1 class="head__title">
                     <svg v-if="props.isBack" width="20" height="20" viewBox="0 0 20 20" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd"
@@ -50,6 +50,7 @@ const props = defineProps<{
         display: flex;
         align-items: center;
         gap: 10px;
+
         svg {
             width: 20px;
             height: 20px;

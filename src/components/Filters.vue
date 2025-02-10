@@ -65,7 +65,7 @@ function chooseSort(selectedValue: string) {
             <li v-for="(item, key) in filtersData" :key="key" class="filters-list__item">
                 <Filter class="filters-list__filter" v-if="item && item.state.isShowed" :itemData="item"
                     @chooseFilter="chooseFilter" @chooseSort="chooseSort" :filterName="key"
-                    :startedSelectedOption:="item.select.startedSelectedOption" />
+                    :startedSelectedOption="item.select.startedSelectedOption" />
             </li>
         </ul>
     </div>
@@ -79,10 +79,9 @@ function chooseSort(selectedValue: string) {
     margin-right: -15px;
     margin-left: -15px;
     padding-left: 15px;
-    padding-right: 15px;
+    padding-right: 15px;    
     padding-bottom: 206px;
     margin-bottom: -206px;
-    -webkit-overflow-scrolling: touch;
 
     &::-webkit-scrollbar {
         display: none;
@@ -92,7 +91,7 @@ function chooseSort(selectedValue: string) {
 .filters-list {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 12px;
     width: max-content;
 }
 </style>

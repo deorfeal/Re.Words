@@ -2,7 +2,7 @@
 import { inject, computed } from 'vue';
 
 const props = defineProps<{
-    optionsPosition?: Record<string, string>;
+    optionsPosition?: Record<string, string | undefined>;
     isShow: boolean;
     variant: 'multiple' | 'single'; // Новый пропс, определяющий вариант отображения
 }>();
@@ -66,7 +66,7 @@ const emit = defineEmits<{
         <div class="options">
             <TransitionGroup name="opacity">
                 <div key="options-cover" v-if="variant === 'single' && isShow" class="options__cover cover"
-                    @touchstart="emit('closeOptions')">
+                    @pointerdown="emit('closeOptions')">
                 </div>
                 <div key="options-block" v-if="isShow" class="options-block filling filling--without-focus"
                     :style="currentPosition"
@@ -75,11 +75,11 @@ const emit = defineEmits<{
                         <li class="options-block__item"
                             :class="{ 'options-block__item--delete': option.optionName === 'Delete' }"
                             v-for="(option, index) in currentOptions" :key="option.optionName"
-                            @touchend="emit('updateOption', option.optionName)">
+                            @pointerup="emit('updateOption', option.optionName)">
                             <div v-if="variant === 'single'" class="options-block__text">
                                 {{ option.optionName }}
                             </div>
-                            <div class="options-options__icon">
+                            <div class="options-block__icon">
                                 <img :src="option.optionIcon" alt="icon">
                             </div>
                         </li>
@@ -94,7 +94,7 @@ const emit = defineEmits<{
 .options-block {
     position: absolute;
     left: 15px;
-    width: 210px;
+    width: max-content;
     padding: unset;
     z-index: 2;
     overflow: hidden;
@@ -129,6 +129,8 @@ const emit = defineEmits<{
         border-bottom: 1px solid rgba(#fff, 2.5%);
         display: flex;
         align-items: center;
+        gap: 60px;
+        cursor: pointer;
         justify-content: space-between;
         padding: 12px;
         transition: background 0.3s;
@@ -164,7 +166,7 @@ const emit = defineEmits<{
     &--parent {
         background: rgba(0, 0, 0, 50%);
         border-radius: 10px;
-        padding: 15px;
+        padding: 12px;
     }
 }
 </style>

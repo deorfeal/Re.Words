@@ -7,6 +7,7 @@ export function useLongPress(longPressDelay = 250) {
     const pressTime = ref<number>(0);
     const isLongPress = ref<boolean>(false);
     const elementRect = ref<DOMRect | null>(null);
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
     const scaleValue: ComputedRef<number> = computed(() => {
         return pressTime.value === 0 ? 1 : 1 - pressTime.value / 100;
@@ -16,7 +17,7 @@ export function useLongPress(longPressDelay = 250) {
         if (!elementRect.value) return { top: 0, translateY: 0 };
         return {
             top: elementRect.value.top,
-            translateY: window.innerHeight / 1.8 - (elementRect.value.top + elementRect.value.height / 1.8),
+            translateY: window.innerHeight / 2 - (elementRect.value.top + elementRect.value.height / 2),
         };
     });
 
@@ -26,11 +27,12 @@ export function useLongPress(longPressDelay = 250) {
         };
     });
 
-    const optionsPosition: ComputedRef<Record<string, string>> = computed(() => {
+    const optionsPosition: ComputedRef<Record<string, string | undefined>> = computed(() => {
         if (!elementRect.value) return { transform: 'translateY(0px)', top: '0px' };
         return {
             transform: `translateY(${wordPosition.value.translateY}px)`,
-            top: `${wordPosition.value.top + 48}px`
+            top: `${wordPosition.value.top + elementRect.value.height + 12 }px`,
+            left: `${elementRect.value.left}px`
         };
     });
 
@@ -39,7 +41,7 @@ export function useLongPress(longPressDelay = 250) {
         animationFrame.value = requestAnimationFrame(updatePressTime);
     };
 
-    const handleTouchStart = (event: TouchEvent, ): void => {
+    const handleTouchStart = (event: PointerEvent): void => {
         disableLongPress()
 
         updateTranslateY(event);
@@ -51,11 +53,12 @@ export function useLongPress(longPressDelay = 250) {
             isLongPress.value = true;
             cancelAnimationFrame(animationFrame.value!);
             pressTime.value = 0;
-        }, longPressDelay);
+        }, isMobile ? longPressDelay : 0);
     };
 
     const disableLongPress = (): void => {
         if (isLongPress.value) {
+            handleTouchEnd()
             isLongPress.value = false;
             return;
         }
@@ -71,7 +74,7 @@ export function useLongPress(longPressDelay = 250) {
         }
     };
 
-    const updateTranslateY = (event: TouchEvent): void => {
+    const updateTranslateY = (event: PointerEvent): void => {
         const target = event.currentTarget as HTMLElement;
         const rect = target.getBoundingClientRect();
         elementRect.value = rect;
@@ -100,6 +103,7 @@ export function useLongPress(longPressDelay = 250) {
         handleTouchEnd,
         disableLongPress,
         wordComputedPosition,
-        optionsPosition
+        optionsPosition,
+        isMobile
     };
 }

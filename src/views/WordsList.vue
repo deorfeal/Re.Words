@@ -62,11 +62,10 @@ provide('optionsType', category.value);
     <div class="wordspage page">
         <div class="container">
             <div class="wordspage__inner">
-
                 <Head :title="`${category[0].toUpperCase() + category.slice(1)} words`" :isBack="true"
                     class="wordspage__head" />
-                <template v-if="rawWords.length > 0">
                     <Search class="wordspage__search" />
+                <template v-if="rawWords.length > 0">
                     <Tubs class="wordspage__tubs" :langs="langs" :categories="categories" :activeLangTub="activeLangTub || 0"
                         :activeCategoryTub="activeCategoryTub || 0" @updateActiveTub="changeActiveTub" />
                     <Filters :withMix="category === 'repeat'" class="wordspage__filters" :wordPair="wordPair" />
@@ -85,7 +84,7 @@ provide('optionsType', category.value);
 .wordspage__inner {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 12px;
     height: calc(100svh - 60px);
 }
 </style>

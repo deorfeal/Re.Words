@@ -51,7 +51,7 @@ watch(
     align-items: center;
     gap: 10px;
     width: 100%;
-
+    cursor: pointer;
     &__icon {
         img {
             width: 16px;

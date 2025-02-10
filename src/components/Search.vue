@@ -57,7 +57,7 @@ const {
 <style lang="scss">
 .search {
     position: relative;
-    
+
     &--active {
         z-index: 2;
 
@@ -85,7 +85,7 @@ const {
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-        right: 10px;
+        right: 12px;
         width: 16px;
         height: 16px;
         display: flex;
@@ -132,18 +132,24 @@ const {
 
 .results-list {
     &__item {
-        padding: 12px;
         border-bottom: 1px solid rgba(255, 255, 255, 2.5%);
         transition: background 0.3s;
+
         &:active {
             background: rgba(255, 255, 255, 15%);
         }
+
+        &:hover {
+            background: rgba(255, 255, 255, 15%);
+        }
+
         &:last-child {
             border-bottom: unset;
         }
     }
 
     &__link {
+        padding: 12px;
         color: #fff;
         display: flex;
         align-items: center;
@@ -151,6 +157,8 @@ const {
         width: 100%;
         transition: color 0.3s;
         gap: 30px;
+        cursor: pointer;
+
         span {
             overflow: hidden;
             text-overflow: ellipsis;

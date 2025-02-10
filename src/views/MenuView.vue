@@ -11,9 +11,11 @@ import AddWordButton from '@/components/AddWordButton.vue';
     <div class="home page">
         <div class="container">
             <div class="home__inner">
+                <div class="home__head">
 
-                <Head title="Words" :isBack="false" class="home__head" />
-                <Search class="home__search" />
+                    <Head title="Words" :isBack="false" class="home__head" />
+                    <Search class="home__search" />
+                </div>
                 <Menu class="home__menu" />
             </div>
         </div>
@@ -25,10 +27,10 @@ import AddWordButton from '@/components/AddWordButton.vue';
 
 <style lang="scss">
 .home__head {
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
 .home__search {
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
 </style>

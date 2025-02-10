@@ -24,7 +24,7 @@ const emit = defineEmits<{
 
 const { isPopupVisible, togglePopup } = usePopup();
 
-const { isLongPress, handleTouchStart, handleTouchEnd, disableLongPress, wordComputedPosition, optionsPosition } = useLongPress();
+const { isLongPress, handleTouchStart, handleTouchEnd, disableLongPress, wordComputedPosition, optionsPosition, isMobile } = useLongPress();
 const { handleOption } = useWordOptions()
 
 function updateOption(optionName: string, formData?: Record<string, string>) {
@@ -45,12 +45,12 @@ function updateOption(optionName: string, formData?: Record<string, string>) {
 const touchStartY = ref(0);
 const isScrolling = ref(false);
 
-const startTouchEvent = (event: TouchEvent, type: 'start' | 'end') => {
+const startTouchEvent = (event: PointerEvent, type: 'start' | 'end') => {
     if (props.withCheckbox) return;
 
     if (type === 'start') {
         isScrolling.value = false;
-        touchStartY.value = event.touches[0].clientY;
+        touchStartY.value = event.clientY;
         handleTouchStart(event);
     }
 
@@ -60,8 +60,8 @@ const startTouchEvent = (event: TouchEvent, type: 'start' | 'end') => {
 };
 
 // Отслеживаем движение пальца
-const handleTouchMove = (event: TouchEvent) => {
-    const moveY = event.touches[0].clientY;
+const handleTouchMove = (event: PointerEvent) => {
+    const moveY = event.clientY;
     if (Math.abs(moveY - touchStartY.value) > 10) {
         isScrolling.value = true;
         disableLongPress();
@@ -103,9 +103,9 @@ watch(
                 </svg>
             </Transition>
         </div>
-        <div class="word__inner filling" :class="{ 'filling--active': isActive }"
-            @touchstart="startTouchEvent($event, 'start')" @touchend="startTouchEvent($event, 'end')"
-            @touchmove="handleTouchMove" :style="wordComputedPosition">
+        <div class="word__inner filling" :class="{ 'filling--active': isActive, 'word__width-less': withCheckbox }"
+            @pointerdown="startTouchEvent($event, 'start')" @pointerup="startTouchEvent($event, 'end')"
+            @pointermove="handleTouchMove" :style="wordComputedPosition">
             <div class="word__raw">
                 <span class="word__index">
                     {{ index + 1 + '.' }}
@@ -116,6 +116,11 @@ watch(
             </div>
             <div class="word__translate">
                 {{ word.translate }}
+            </div>
+            <div v-if="!isMobile" class="word__dots">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </div>
         <WordOptions :isShow="isLongPress" :optionsPosition="optionsPosition" @updateOption="updateOption"
@@ -136,6 +141,23 @@ watch(
     align-items: center;
     gap: 10px;
     position: relative;
+    cursor: pointer;
+    &__width-less {
+        max-width: calc(100% - 52px);
+    }
+    &__dots {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+        padding: 0 5px;
+
+        span {
+            width: 3px;
+            height: 3px;
+            background: #fff;
+            border-radius: 100%;
+        }
+    }
 
     &--active {
         z-index: 2;
@@ -145,7 +167,8 @@ watch(
     &__inner {
         display: flex;
         align-items: center;
-        gap: 15px;
+        gap: 12px;
+        max-height: 42px;
         justify-content: space-between;
     }
 
@@ -156,6 +179,7 @@ watch(
         max-width: 50%;
         width: max-content;
         flex-grow: 1;
+
         span {
             max-width: 75%;
             text-overflow: ellipsis;
@@ -171,6 +195,7 @@ watch(
         overflow: hidden;
         width: max-content;
         flex-grow: 1;
+        text-align: right;
     }
 
     &__cover {}

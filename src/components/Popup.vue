@@ -39,12 +39,15 @@ const props = defineProps<{
     text-align: center;
     font-weight: 700;
     font-size: 28px;
-    line-height: 28px
+    line-height: 28px;
 }
 
 .popup__inner {
     padding: 30px 0;
     min-height: 100vh;
+    max-width: 550px;
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;

@@ -1,24 +1,20 @@
----
-
-### Re.Words
-
----
+# Re.Words
 
 This template should help get you started developing with Vue 3 in Vite.
 
-### Recommended IDE Setup
+## Recommended IDE Setup
 
 [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
 
-### Type Support for `.vue` Imports in TS
+## Type Support for `.vue` Imports in TS
 
 TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
 
-### Customize configuration
+## Customize configuration
 
 See [Vite Configuration Reference](https://vite.dev/config/).
 
-### Project Setup
+## Project Setup
 
 ```sh
 npm install
@@ -36,9 +32,7 @@ npm run dev
 npm run build
 ```
 
----
-
-### 📚 **Functionality**
+## 📚 **Functionality**
 
 ### 📦 **Word Management**
 
@@ -92,7 +86,7 @@ Automatic logout after inactivity ⏳
 
 ---
 
-### 📊 **Logic & Workflow**
+## 📊 **Logic & Workflow**
 
 - Dynamic updates: All changes sync instantly with Firebase
 - Data validation: Ensures correctness before saving to the database
@@ -100,13 +94,13 @@ Automatic logout after inactivity ⏳
 
 ---
 
-### 📸 **Screenshots & Demo**
+## 📸 **Screenshots & Demo**
 
 Live demo: https://deorfeal.github.io/Re.Words
 
 ---
 
-### 📧 **Contacts**
+## 📧 **Contacts**
 
 - **Name:** Mykhailo Hakman
 - **Email:** deorfeal.it@gmail.com
@@ -114,7 +108,7 @@ Live demo: https://deorfeal.github.io/Re.Words
 
 ---
 
-### 📜 **License**
+## 📜 **License**
 
 This project is distributed under the MIT License.
 
@@ -135,5 +129,3 @@ Re.Words showcases expertise in:
 ✅ Optimized network requests
 
 Make language learning effective and engaging! 🚀
-
----

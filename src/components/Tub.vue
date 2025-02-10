@@ -30,7 +30,8 @@ defineEmits<{
     align-items: center;
     justify-content: space-between;
     gap: 30px;
-
+    max-height: 42px;
+    cursor: pointer;
     &--active {
         color: #0A0416;
         background: #fff;

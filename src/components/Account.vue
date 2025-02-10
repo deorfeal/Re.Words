@@ -20,4 +20,8 @@ const signOutMethod = async (): Promise<void> => {
     </div>
 </template>
 
-<style lang="scss"></style>
+<style lang="scss">
+    .account {
+        cursor: pointer;
+    }
+</style>

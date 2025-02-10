@@ -37,13 +37,7 @@ const emit = defineEmits<{
 .tubs {
     display: flex;
     flex-direction: column;
-    gap: 15px;
-
-    &__section {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
+    gap: 12px;
 
     &__title {
         font-size: 16px;

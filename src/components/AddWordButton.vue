@@ -28,5 +28,6 @@ const { isPopupVisible, togglePopup } = usePopup();
     position: absolute;
     right: 15px;
     bottom: 30px;
+    cursor: pointer;
 }
 </style>

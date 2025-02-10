@@ -42,7 +42,7 @@
 
     &__btn {
         width: 100%;
-        max-width: 167px;
+        max-width: 170px;
         animation: buttonAnimation 3s 1.5s forwards;
         opacity: 0;
         transform: translateY(120px) scale(1.5);
